@@ -7,6 +7,7 @@
     <title>AJAX with JavaScript</title>
     <script>
       var xhr = new XMLHttpRequest();
+      // this is opening the request
       xhr.open("GET", "sidebar.html");
       // this fuction fires everytime there is a change going on
       xhr.onreadystatechange = function () {
@@ -20,6 +21,8 @@
       // this will send off the request
       function sendAJAX() {
         xhr.send();
+        // this will get rid of the button
+        document.getElementById("load").style.display = "none";
       }
     </script>
   </head>

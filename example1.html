@@ -13,8 +13,16 @@
       xhr.onreadystatechange = function () {
         // this wiil test the state
         if (xhr.readyState === 4) {
-          // this is getting the text from the sidebar html
-          document.getElementById("ajax").innerHTML = xhr.responseText;
+          if (xhr.status === 200) {
+            // this is getting the text from the sidebar html
+            document.getElementById("ajax").innerHTML = xhr.responseText;
+          } else if (xhr.status === 404) {
+            // file not found
+            alert(xhr.statusText);
+          } else if (xhr.status === 500) {
+            // there was a problem with the server
+            alert(xhr.statusText);
+          }
         }
       };
 
